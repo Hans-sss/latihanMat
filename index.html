@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Jordan Bisa</title>
+</head>
+<body>
+    <div style="height: 150px"></div>
+    <div class="container">
+        <div class="text-center">
+            <button class="btn btn-primary" onclick="start()"><h1>START!</h1></button>
+            <div style="height: 75px;"></div>
+            <div style="font-size: 100px;" id="question"></div>
+            <div style="height: 50px;"></div>
+            <div style="width: 100%;">
+                <form action="" style="margin: auto; max-width: 1000px;">
+                  <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                    <div class="input-group">
+                      <input style="height: 100px; font-size: 70px; text-align: center;" id="search" type="search" placeholder="Type Answer Here" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div style="height: 20px;"></div>
+            <div id="checked"></div>
+            <div style="height: 20px;"></div>
+            <div class="text-center"><button onclick="check()" class="btn btn-primary"><h1>Check!</h1></button></div>
+          
+        </div>
+        
+    </div>
+</body>
+</html>
+
+<script>
+    var a;
+    var b;
+    var op;
+    var  correct;
+    var signs = [" + ", " - ", " x ", "x"];
+
+    var randomNumber = Math.floor(Math.random()*textArray.length);
+
+    audioElement.setAttribute('src', textArray[randomNumber]);
+
+    function randomNumber(min, max){
+        const r = Math.random()*(max-min) + min
+        return Math.floor(r)
+    }
+
+    function start() {
+        a = randomNumber(1,100)
+        b = randomNumber(1,100)
+        op = randomNumber(0,3)
+        console.log(op)
+
+        console.log(a)
+        console.log(b)
+
+        document.getElementById("question").innerHTML = (a + signs[op] + b);
+    }
+
+    function check() {
+        var ans = $('#search').val();
+        console.log("hello there")
+        console.log(ans)
+        console.log(a)
+        console.log(b)
+        console.log(op)
+
+        if (op == 0) {
+            correct = a + b
+            console.log("000")
+        } else if (op == 1){
+            correct = a - b
+            console.log("001")
+        } else if (op == 2 || op == 3) {
+            correct = a*b
+            console.log("002")
+        } else {
+            console.log("xxxxxxx")
+        }
+
+        console.log("aaa")
+        console.log(correct)
+
+        if (ans == correct) {
+            document.getElementById("checked").innerHTML = "<div class='alert alert-success text-center' role='alert'><h1>Hebat! Benar!</h1>    </div>";
+        } else {
+            document.getElementById("checked").innerHTML = "<div class='alert alert-danger text-center' role='alert'><h1>Salah dong.. yang bener " + correct + "</h1>    </div>";
+        }
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
