@@ -115,10 +115,13 @@
         if (ans == correct) {
             document.getElementById("checked").innerHTML = "<div class='alert alert-success text-center' role='alert'><h1>" + right[rand] + "</h1>    </div>";
             streak += 1;
-            document.getElementById("streak").innerHTML = "<h3>win streak: " + streak + "</h3>";
         } else {
             document.getElementById("checked").innerHTML = "<div class='alert alert-danger text-center' role='alert'><h1>Salah dong.. yang bener " + correct + "</h1>    </div>";
+            streak = 0;
         }
+        
+        document.getElementById("streak").innerHTML = "<h3>win streak: " + streak + "</h3>";
+        
         document.getElementById("check-btn").innerHTML = '<button class="btn btn-primary" onclick="start()"><h1>Lagi!</h1></button>';
     }
 </script>
