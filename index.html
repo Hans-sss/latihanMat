@@ -15,6 +15,7 @@
             <div style="font-size: 100px;" id="question"></div>
             <div style="height: 40px;"></div>
             <div style="width: 100%;">
+                <div id="streak" class="text-center"><h3>win streak: 0</h3></div>
                 <form action="" style="margin: auto; max-width: 1000px;">
                   <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
                     <div class="input-group">
@@ -41,6 +42,7 @@
     var op;
     var  correct;
     var signs = [" + ", " - ", " x ", "x", ":", ":"];
+    var streak = 0;
 
     var randomNumber = Math.floor(Math.random()*textArray.length);
 
@@ -112,6 +114,8 @@
 
         if (ans == correct) {
             document.getElementById("checked").innerHTML = "<div class='alert alert-success text-center' role='alert'><h1>" + right[rand] + "</h1>    </div>";
+            streak += 1;
+            document.getElementById("streak").innerHTML = "<h3>win streak: " + streak + "</h3>";
         } else {
             document.getElementById("checked").innerHTML = "<div class='alert alert-danger text-center' role='alert'><h1>Salah dong.. yang bener " + correct + "</h1>    </div>";
         }
