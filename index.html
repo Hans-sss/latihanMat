@@ -41,7 +41,7 @@
     var b;
     var op;
     var  correct;
-    var signs = [" + ", " - ", " x ", "x"];
+    var signs = [" + ", " - ", " x ", "x", "x"];
 
     var randomNumber = Math.floor(Math.random()*textArray.length);
 
@@ -53,9 +53,16 @@
     }
 
     function start() {
-        a = randomNumber(1,20)
-        b = randomNumber(1,20)
-        op = randomNumber(0,3)
+        op = randomNumber(0,4)
+        if (op == 0 || op ==  1) {
+            a = randomNumber(1,100)
+            b = randomNumber(1,100)
+        } else {
+            a = randomNumber(1,20)
+            b = randomNumber(1,20)
+        }
+        
+
         console.log(op)
 
         console.log(a)
@@ -64,6 +71,7 @@
         document.getElementById("question").innerHTML = (a + signs[op] + b);
         document.getElementById("search").value = ' ';
         document.getElementById("search").placeholder = 'Answer Here';
+        document.getElementById("checked").innerHTML = " ";
     }
 
     function check() {
@@ -80,7 +88,7 @@
         } else if (op == 1){
             correct = a - b
             console.log("001")
-        } else if (op == 2 || op == 3) {
+        } else if (op == 2 || op == 3 || op == 4) {
             correct = a*b
             console.log("002")
         } else {
