@@ -40,7 +40,7 @@
     var b;
     var op;
     var  correct;
-    var signs = [" + ", " - ", " x ", "x", "x", "x"];
+    var signs = [" + ", " - ", " x ", "x", ":", ":"];
 
     var randomNumber = Math.floor(Math.random()*textArray.length);
 
@@ -56,9 +56,13 @@
         if (op == 0 || op ==  1) {
             a = randomNumber(1,100)
             b = randomNumber(1,100)
-        } else {
+        } else if (op == 2 || op == 3) {
             a = randomNumber(10,21)
             b = randomNumber(1,21)
+        } else {
+            b = randomNumber(1, 10)
+            correct = randomNumber(1, 10)
+            a = b*correct
         }
         
 
@@ -67,6 +71,9 @@
         console.log(a)
         console.log(b)
 
+        if (op == 4 || op == 5) {
+
+        }
         document.getElementById("question").innerHTML = (a + signs[op] + b);
         document.getElementById("search").value = null;
         document.getElementById("search").placeholder = 'Answer Here';
@@ -88,10 +95,12 @@
         } else if (op == 1){
             correct = a - b
             console.log("001")
-        } else if (op == 2 || op == 3 || op == 4 || op == 5) {
+        } else if (op == 2 || op == 3) {
             correct = a*b
             console.log("002")
-        } else {
+        } else if (op == 4 || op == 5){
+            console.log("003")
+        } else{
             console.log("xxxxxxx")
         }
 
